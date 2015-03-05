@@ -1,0 +1,33 @@
+<html>
+<head>
+	<title>whack</title>
+</head>
+<link rel="stylesheet" type="text/css" href="/css/whack.css">
+<body>
+<div>
+<table>
+<div ></div>
+</table>
+<img id="gettem" src="/img/red_shirt.jpeg">
+
+
+
+
+</div>
+
+
+
+
+
+<script type="text/javascript" src="/js/jquery_library.js"></script>
+<script type="text/javascript">$(document).ready(function(){
+	alert("ready on the DOM");
+	$("#gettem").slideDown(2000);
+
+	$("#gettem").click(function(){
+		$(this).slideUp(500);
+	});
+});
+</script>
+</body>
+</html>

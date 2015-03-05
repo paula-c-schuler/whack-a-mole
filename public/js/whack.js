@@ -13,34 +13,22 @@
 
 //Add score. Each time the mole is successfully clicked, increase the displayed score by 1.
 //
-
-//THIS WORKS
-cells = document.getElementsByClassName('cell');
-console.log(cells + " is cells");
+// $(document).ready(function() {
+    // alert( 'The DOM has finished loading!' );
 
 
-//THIS WORKS
-$(document).ready(function() {
-    alert( 'The DOM has finished loading!' );
-    getRandom();
-});
-
-//THIS WORKS
-var getRandom = function (){
-	var newCell = Math.floor(Math.random() * 8);
-	console.log(newCell + " is newCell");
-	animateCell(newCell);
-};
-
-var animateCell = function(newCell){
-	console.log("in animateCell");
+var getRandomCell = function() {
+	var random = Math.floor(Math.random() * 9);
+	var cells = $(".col-md-3");
+	console.log(cells);
+	$(cells[random]).addClass("mole");
 }
 
 
 
+	
 
-
-
+// });
 
 
 

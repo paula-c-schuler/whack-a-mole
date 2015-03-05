@@ -1,21 +1,22 @@
 .container {
-	margin-right: auto;
-	margin-left: auto;
+	/*margin-right: 170px;*/
+	/*margin-left: 170px;*/
+	height: 170px;
+	width: 170px;
 	background-color: #F79F13;
+	position: relative;
 }
 
-.row {
-	height: 100px;
-	width: 320px;
-	margin: 1px;
-	background-color: #EBEAE1;
-}
-
-.box {
-	height: 100px;
-	width: 100px;
+/*THESE TWO CLASSES WILL TOGGLE WITH THE RANDOM NUMBER*/
+.col-md-3 {
+	height: 50px;
+	width: 50px;
 	margin: 2px;
 	float: left;
-	background-color: red;
-	/*display: none;*/
+	border: 1px black;
+	/*background-color: red;*/
 }
+.mole {
+	background-color: red;
+}
+

@@ -1,15 +1,21 @@
 .container {
-	margin-right: 100px;
-	margin-left: 100px;
+	margin-right: auto;
+	margin-left: auto;
 	background-color: #F79F13;
 }
 
 .row {
-
+	height: 100px;
+	width: 320px;
+	margin: 1px;
+	background-color: #EBEAE1;
 }
 
 .box {
-	height: auto;
-	width: auto;
+	height: 100px;
+	width: 100px;
+	margin: 2px;
+	float: left;
+	background-color: red;
+	/*display: none;*/
 }
-

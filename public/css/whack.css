@@ -5,6 +5,8 @@
 	width: 170px;
 	background-color: #F79F13;
 	position: relative;
+	font-family: Verdana;
+	position: relative;
 }
 
 /*THESE TWO CLASSES WILL TOGGLE WITH THE RANDOM NUMBER*/
@@ -18,5 +20,22 @@
 }
 .mole {
 	background-color: red;
+}
+
+#score {
+	height: 30px;
+	width: 75px;
+	text-align: center;
+	font-size: large;
+	float: left;
+}
+
+#timer {
+	height: 30px;
+	width: 75px;
+	text-align: center;
+	font-size: large;
+	float: left;
+
 }
 

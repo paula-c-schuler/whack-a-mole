@@ -9,13 +9,12 @@ score = 0;
 var getRandomCell = function() {
 	var random = Math.floor(Math.random() * 9);
 	var cells = $(".box");
-	console.log(cells);
 	
 	$(cells[random]).addClass("mole");
 	
 	var timeoutId = setTimeout (function(){
 	$(cells[random]).removeClass("mole");
-	},1300);
+	},1000);
 }
 
 //game goes for 15 seconds regardless of user activity
@@ -25,6 +24,7 @@ var overallTimer = setInterval (function(){
 
 		timer--;
 		$("#timer").html(timer);
+		
 	} else {
 		clearInterval(overallTimer);
 		$("#start").removeClass("start");
@@ -45,9 +45,10 @@ $(".box").click(function(){
 //upon button click, it resets the score and calls game function
 var start = function(){
 $("#start").click(function() {
-	console.log("start heard");
+	
 	score = 0;
-	$("#score").html(score);
+	// $("#score").html(score);
+	$("#scorecount").html(score);
 
 	getRandomCell();
 	});

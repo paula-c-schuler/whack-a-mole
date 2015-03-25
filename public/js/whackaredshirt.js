@@ -1,23 +1,23 @@
 //******** JAVASCRIPT FOR WHACKAMOLE GAME *********
 
 var timer = 15;
-interval = 1500;
+interval = 1300;
 score = 0;
  
 
-//generate and change the appearance of a random "mole"
+// Generate and change appearance of random "mole."
 var getRandomCell = function() {
-	var random = Math.floor(Math.random() * 9);
+	var random = Math.floor(Math.random() * 10);
 	var cells = $(".box");
 	
 	$(cells[random]).addClass("mole");
 	
 	var timeoutId = setTimeout (function(){
 	$(cells[random]).removeClass("mole");
-	},1000);
+	},1300);
 }
 
-//game goes for 15 seconds regardless of user activity
+// Game lasts 15 seconds regardless of user activity.
 var overallTimer = setInterval (function(){	
 	if (timer > 0){
 		getRandomCell();
@@ -28,12 +28,14 @@ var overallTimer = setInterval (function(){
 	} else {
 		clearInterval(overallTimer);
 		$("#start").removeClass("start");
-		alert("Game Over");
+
+		alert("Game Over.");
 		}
 	}, interval);
 
-//user click is verified valid or not, score is posted on display
+// User click is verified valid, scores posted.
 $(".box").click(function(){
+
 	//play tos_phaser audio*************** HOW DO I PLAY AUDIO? **********
 	if($(this).hasClass('mole')) {
 		$(".box").removeClass("mole");
@@ -42,17 +44,26 @@ $(".box").click(function(){
 	}
 });
 //button appears after game over and offers opportunity to play again, 
-//upon button click, it resets the score and calls game function
+//upon button click, it resets the score and calls game function.
 var start = function(){
-$("#start").click(function() {
-	
-	score = 0;
-	// $("#score").html(score);
-	$("#scorecount").html(score);
-
-	getRandomCell();
+$("#start").click(function() {	
+	$("#score").html(score);
+	delayRestart();
 	});
 };
+
+// Call function immediately for immediate listening to start button.
+start();
+
+// Upon listener hearing start click, this function delays restart.
+// Player has time to watch for first mole.
+var delayRestart = function () {
+	var timeoutId = setTimeout (function(){
+	timer = 15;
+	},2500);
+	location.reload();
+	getRandomCell();
+}
 
 		
 

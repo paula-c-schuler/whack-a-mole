@@ -1,49 +1,46 @@
 <!DOCTYPE html>
-<!--  WHACK A MOLE  -->
+<!-- EXERCISE 5.7 - WHACKAMOLE GAME -->
 <html>
 <head>
     
     <title>Whack_a_Mole</title>
     
     <link rel="stylesheet" type="text/css" href="/css/whack.css">
-            <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
 
 </head>
 <body>
-    <!-- <h1>THIS IS THE WHACK</h1> -->
     <div class="container">
-        <div class="buttons">
-            <button id="score">Score</button>
-            <button id="timer">Timer</button>
+        <div class="row header">
+            <div class="col-6-6" id="title">Whack!</div>
         </div>
-        <div class="grid">
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
+        <div class="row header" id="high-score">
+            <div class="col-6-6"></div>
+        </div>
+        <div class="row buttons">
+            <div class="col-2-6"></div>
+            <div class="col-2-6" id="score">Score</div>
+            <button class="col-2-6" id="start">Start</button>
+        </div>
         
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
+
+        <div class="row grid">
+            <div class="col-2-6 box"></div>
+            <div class="col-2-6 box"></div>
+            <div class="col-2-6 box"></div>
         
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div> 
+            <div class="col-2-6 box"></div>
+            <div class="col-2-6 box"></div>
+            <div class="col-2-6 box"></div>
+        
+            <div class="col-2-6 box"></div>
+            <div class="col-2-6 box"></div>
+            <div class="col-2-6 box"></div> 
         </div> 
+        
     </div>
     
-    
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script type="text/javascript" src="/js/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="/js/whack.js"></script>
-    
 
 </body>
 </html>

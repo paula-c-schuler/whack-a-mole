@@ -4,7 +4,6 @@ WHACK A RED SHIRT
 .background {
 	background-image: url("/img/desert.jpg");
 	min-width: 1024px;
-	/*min-height: 6px;*/
 	height: 625px;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -18,7 +17,6 @@ WHACK A RED SHIRT
 	margin-bottom: 25px;
 	margin-left: 10px;
 	padding: 25px;
-	border-color: black 1px dashed;
 }
 
 .logo {
@@ -26,14 +24,11 @@ WHACK A RED SHIRT
 	width: 225px;
 	margin-top: 25px;
 	float: left;
-	border-color: blue 1px solid;
 	background-image: url(/img/ussEnterprise.png);
 }
 
 .control {
 	margin-top: 250px;
-
-	border-color: yellow 4px solid;
 }
 
 
@@ -51,9 +46,6 @@ WHACK A RED SHIRT
 	margin-bottom: 500px;
 	margin-right: auto;
 	margin-left: auto;
-	/*position: absolute;*/
-
-	border: 3px blue solid;
 }
 
 .box3 {
@@ -61,11 +53,9 @@ WHACK A RED SHIRT
 	width: 60px;
 	float: left;
 	margin: 1px;
-
-	border: black 1px solid;
 }
 
-/*THIS CLASS .MOLE WILL TOGGLE WITH THE RANDOM NUMBER*/
+/*.MOLE WILL TOGGLE WITH THE RANDOM NUMBER*/
 .mole {
 	background-image: url(/img/red_shirt.gif);
 

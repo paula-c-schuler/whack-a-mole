@@ -5,11 +5,25 @@ $(document).ready(function() {
 	var timer = 30;
 	var interval = 1500;
 	var score = 0;
+	var level = 1;
 
-	//  Console says below is not a function???
-	// var audio = document.getElementbyId("sound");
+	// Adds sound when mole is hit
+	// Validates user click, if valid then increases score
+	var audio = document.getElementById("sound");
+	$(".grid").on('click', '.mole', function() {
+		audio.play();
 
-	// Game goes for 10 seconds regardless of user activity
+		if (timer == 0) {
+			console.log("user can't play, timed out");
+
+		} else if (timer !=0) {
+			$(".box").removeClass("mole");
+			score += 1;
+			$("#score").html(score);
+		}
+	});
+
+	// Game goes for time period regardless of user activity
 	var gameRound = function(interval) {
 	var overallTimer = setInterval (function(){	
 		if (timer > 0){
@@ -25,49 +39,24 @@ $(document).ready(function() {
 
 	// Generate and change the appearance of a random "mole"	
 	var getRandomCell = function() {
-
 		var random = Math.floor(Math.random() * 9);
 		var cells = $(".box");
-		
+
 		$(cells[random]).addClass("mole");
 		
-		var timeoutId = setTimeout (function(){
+		var timeoutId = setTimeout (function() {
 		$(cells[random]).removeClass("mole");
 		},interval);
 	}
 
-
-
-	// User click is verified valid or not, score is posted on display
-	// Allows user to click only while timer runs.
-	$(".box").click(function(){
-		if (timer == 0) {
-			console.log("user can't play, timed out");
-		} else if (timer !=0) {
-			if($(this).hasClass('mole')) {
-				$(".box").removeClass("mole");
-				score += 1;
-				$("#score").html(score);
-			} 
-		}
-	});
-
-	// Adds sound when mole is hit
-	// Not working. Getting "not a function errors"
-	// $(".box").click(function() {
-	// 	audio.play(audio);
-	// });
-
-
-	// Clicking start always restarts the game
-	// Page reload is not working
+	// Clicking start always starts or restarts the game
 	$("#start").click(function() {
-		// var start = true;
-		if (timer = 30) {
+		if (timer == 30) {
 			gameRound(interval);
 			
 		} else if (timer < 30) {
 			location.reload();
+			timer = 30;
 			var timeoutId = setTimeout (function(){
 				gameRound(interval);
 			},2500);
@@ -80,9 +69,6 @@ $(document).ready(function() {
     }, function(){
     	$(this).css("color", "white");
 	});
-
-	
-	
 
 
 	// refactor: timer ending is end of round, max 3 rounds.

@@ -10,33 +10,37 @@
 </head>
 <body>
     <div class="container">
+
         <div class="row header">
             <div class="col-6-6" id="title">Whack!</div>
         </div>
-        <div class="row header" id="high-score">
-            <div class="col-6-6"></div>
+        <div class"row level">
+            <div class="col-6-6" id="title">Level 1</div>
         </div>
+        
         <div class="row buttons">
-            <div class="col-2-6"></div>
+            <div class="col-2-6 start" id="start">Start</div>
             <div class="col-2-6" id="score">Score</div>
-            <button class="col-2-6" id="start">Start</button>
+            
+
         </div>
         
 
         <div class="row grid">
-            <div class="col-2-6 box"></div>
-            <div class="col-2-6 box"></div>
-            <div class="col-2-6 box"></div>
+            <div class="col-2-6 box" onclick="document.getElementById('sound').play()"></div>
+            <div class="col-2-6 box" onclick="document.getElementById('sound').play()"></div>
+            <div class="col-2-6 box" onclick="document.getElementById('sound').play()"></div>
         
-            <div class="col-2-6 box"></div>
-            <div class="col-2-6 box"></div>
-            <div class="col-2-6 box"></div>
+            <div class="col-2-6 box" onclick="document.getElementById('sound').play()"></div>
+            <div class="col-2-6 box" onclick="document.getElementById('sound').play()"></div>
+            <div class="col-2-6 box" onclick="document.getElementById('sound').play()"></div>
         
-            <div class="col-2-6 box"></div>
-            <div class="col-2-6 box"></div>
-            <div class="col-2-6 box"></div> 
+            <div class="col-2-6 box" onclick="document.getElementById('sound').play()"></div>
+            <div class="col-2-6 box" onclick="document.getElementById('sound').play()"></div>
+            <div class="col-2-6 box" onclick="document.getElementById('sound').play()"></div> 
         </div> 
         
+        <audio id="sound" src="/sound/splat.wav"></audio>
     </div>
     
     <script type="text/javascript" src="/js/jquery-2.1.4.min.js"></script>

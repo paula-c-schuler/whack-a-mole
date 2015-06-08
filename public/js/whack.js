@@ -2,11 +2,14 @@
 $(document).ready(function() {
 
 	"use strict";
-	var timer = 10;
+	var timer = 30;
 	var interval = 1500;
 	var score = 0;
 
-	//game goes for 10 seconds regardless of user activity
+	//  Console says below is not a function???
+	// var audio = document.getElementbyId("sound");
+
+	// Game goes for 10 seconds regardless of user activity
 	var gameRound = function(interval) {
 	var overallTimer = setInterval (function(){	
 		if (timer > 0){
@@ -20,7 +23,7 @@ $(document).ready(function() {
 	}
 
 
-	//generate and change the appearance of a random "mole"	
+	// Generate and change the appearance of a random "mole"	
 	var getRandomCell = function() {
 
 		var random = Math.floor(Math.random() * 9);
@@ -35,7 +38,8 @@ $(document).ready(function() {
 
 
 
-	//user click is verified valid or not, score is posted on display
+	// User click is verified valid or not, score is posted on display
+	// Allows user to click only while timer runs.
 	$(".box").click(function(){
 		if (timer == 0) {
 			console.log("user can't play, timed out");
@@ -48,14 +52,21 @@ $(document).ready(function() {
 		}
 	});
 
+	// Adds sound when mole is hit
+	// Not working. Getting "not a function errors"
+	// $(".box").click(function() {
+	// 	audio.play(audio);
+	// });
 
-	// clicking start always restarts the game
+
+	// Clicking start always restarts the game
+	// Page reload is not working
 	$("#start").click(function() {
 		// var start = true;
-		if (timer = 10) {
+		if (timer = 30) {
 			gameRound(interval);
 			
-		} else if (timer < 10) {
+		} else if (timer < 30) {
 			location.reload();
 			var timeoutId = setTimeout (function(){
 				gameRound(interval);
@@ -64,8 +75,13 @@ $(document).ready(function() {
 	});
 
 	
+	$("#start").hover(function(){
+    	$(this).css("color", "navy");
+    }, function(){
+    	$(this).css("color", "white");
+	});
 
-	// allow user to click only while timer runs. timer ending calls start.
+	
 	
 
 

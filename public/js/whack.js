@@ -2,7 +2,7 @@
 $(document).ready(function() {
 
 	"use strict";
-	var timer = 30;
+	var timer = 10;
 	var interval = 1500;
 	var score = 0;
 	var level = 1;
@@ -30,7 +30,18 @@ $(document).ready(function() {
 			getRandomCell();
 			timer--;
 
-		} else {
+		} else { 
+			level += 1;
+			console.log(level);
+			console.log("is level");
+			// Level change is not displaying yet
+			if (level == "2") {
+				$("#level1").hide();
+				$("#level2").show();
+			} else if (level == 3) {
+				$("#level2").hide();
+				$("#level3").show();
+			}
 			clearInterval(overallTimer);
 		}
 		}, interval);
@@ -51,12 +62,12 @@ $(document).ready(function() {
 
 	// Clicking start always starts or restarts the game
 	$("#start").click(function() {
-		if (timer == 30) {
+		if (timer == 10) {
 			gameRound(interval);
 			
 		} else if (timer < 30) {
 			location.reload();
-			timer = 30;
+			timer = 10;
 			var timeoutId = setTimeout (function(){
 				gameRound(interval);
 			},2500);

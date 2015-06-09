@@ -76,19 +76,24 @@ html {
 	float: right;
 }
 
-#start: hover {
-	color: yellow;
-}
-
 .title {
 	font-size: large;
 	padding: 20px;
 }
 
-#level2, #level3 {
+#level1 {
+	
+}
+
+#level2 {
 	font-size: large;
 	padding: 20px;
 	display: none;
 }
 
+#level3 {
+	font-size: large;
+	padding: 20px;
+	display: none;
+}
 

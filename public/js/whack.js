@@ -2,14 +2,30 @@
 $(document).ready(function() {
 
 	"use strict";
-	var timer = 10;
-	var interval = 1200;
+	var timer = 20;
+	var interval = 1500;
 	var score = 0;
 	var level = 1;
+	var high;
+	var highNew;
 	var round1;
 	var round2;
 	var round3;
 
+
+	// set high score
+	function initiateHighScore() {	
+		high = localStorage.getItem("high");
+		if (high == undefined && high == null) {
+			localStorage.setItem("high", 0);
+			console.log(localStorage.getItem('high'));
+		} else {
+			$("#highscore").text("High Score: " + high);
+		}
+	}
+	initiateHighScore();
+
+	
 	// Adds sound when mole is hit
 	// Validates user click, if valid then increases score
 	var audio = document.getElementById("sound");
@@ -25,59 +41,32 @@ $(document).ready(function() {
 		}
 	});
 
-	// Game goes for time period regardless of user activity
-	// var gameRound = function(interval) {
-	// var overallTimer = setInterval (function(){	
-	// 	console.log(level);
-	// 	console.log("is level");
-	// 	if (level < 4) {
-	// 		if (timer > 0){
-	// 		getRandomCell();
-	// 		timer--;
-	// 		}
-	// 	} else { 
-	// 		level += 1;
-	// 		console.log(level);
-	// 		console.log("is level after else");
-	// 		clearInterval(overallTimer);
-	// 	}
-	// 	}, interval);
-	// }
 
-	// Testing refactoring timers to speed up the game
-	// Start button succeeds calling this with setInterval
-	// clearInterval succeeds stopping this round1 call
+	// Tracks the timer and calls for a random mole to appear
+	// When timer hits 0, calls for another round, max 3 rounds.
 	function gameTimer() {	
-		console.log(level);
-		console.log("is level");
 		if (timer > 0) {
 			getRandomCell();
 			timer--;
 			console.log(timer);
-		} else if (timer == 0) { 
+
+		} else { 
 			clearInterval(round1);
 			clearInterval(round2);
 			clearInterval(round3);
 			if (level === 1) {
-				console.log(level);
-				console.log("is level === 1");
 				level += 1;
-				$("#level1").text("Next Level!");
 				anotherRound(level);
+
 			} else if (level === 2) {
-				console.log(level);
-				console.log("is level === 2");
 				level += 1;
 				anotherRound(level);
 				
 			} else if (level === 3) {
-				console.log(level);
-				console.log("is level === 3");
+				determineHighScore(score);
 			}
-			
 		}
 	}
-	
 
 
 	// Generate and change the appearance of a random "mole"	
@@ -88,47 +77,56 @@ $(document).ready(function() {
 		$(cells[random]).addClass("mole");
 		
 		var timeoutId = setTimeout (function() {
-		$(cells[random]).removeClass("mole");
-		},interval);
+			$(cells[random]).removeClass("mole");
+		},900);
 	}
 
-	// Updates display, shortens interval and calls another round of the game
+
+	// Updates display, refreshes timer, shortens interval and calls another round of the game
 	function anotherRound() {
 		if (level === 2) {
-			console.log(level);
-			console.log("is level === 2");
 			$("#level1").text("Level 2!");
-		round2 = setInterval(gameTimer, 900);
+			timer = 20;
+			round2 = setInterval(gameTimer, 1200);
+
 		} else if (level === 3) {
-			console.log(level);
-			console.log("is level === 3");
 			$("#level1").text("Last Level!");
-		// round3 = setInterval(gameTimer, 700);
+			timer = 20;
+			round3 = setInterval(gameTimer, 1000);
 		}
 	}
 
+
+	// Compares score to high score, updates, displays
+	function determineHighScore() {
+		high = localStorage.getItem("high");
+		if (score > high) {
+			var highNew = score;
+			localStorage.setItem("high", highNew);
+			$("#highscore").text("High Score: " + highNew);
+		}
+	}
+
+
 	// Clicking start always starts or restarts the game
 	$("#start").click(function() {
-		if (timer == 10) {
+		if (timer == 20) {
 			round1 = setInterval(gameTimer, 1200);
 			
-		} else if (timer < 30) {
+		} else if (timer < 20) {
 			location.reload();
-			timer = 10;
+			timer = 20;
 			var timeoutId = setTimeout (function(){
 				gameRound(interval);
 			},2500);
 		}
 	});
 
-	
+
+	// Responds to user hovering over start button
 	$("#start").hover(function(){
     	$(this).css("color", "navy");
     }, function(){
     	$(this).css("color", "white");
 	});
-
-
-	// refactor: timer ending is end of round, max 3 rounds.
-	// add function that makes moles appear more often after each round.
 });
